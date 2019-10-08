@@ -1,0 +1,13 @@
+{
+   "name": "Pin-It: Task scheduling app",
+   "short_name": "Pin-It",
+   "start_url": "index.html",
+   "display": "standalone",
+   "icons": [
+      {
+         "src": "images/red-pin.png",
+         "sizes": "192x192",
+         "type": "image/png"
+      }
+   ]
+}
