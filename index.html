@@ -19,7 +19,7 @@
    <title>Pin-it</title>
 </head>
 
-<body>
+<body onload="createTimeBanners()">
    <div class="header">
       <!-- Boostrap Navbar
    TODO: 
@@ -29,11 +29,26 @@
    * 
    -->
       <nav class="navbar bg-white-nav fixed-top">
-         <a class="navbar-brand" href="#">Pin-it: <span id="user-name">Francisco Morales</span></a>
+         <a class="navbar-brand" href="#">Pin-it <span id="user-name">Francisco Morales</span></a>
       </nav>
    </div>
 
+   <!-- Actual Content -->
+   <div id="app-container">
+      <!-- Will dynamically add stuff here -->
+   </div>
+
+   <!-- Footer -->
+   <div class="footer">
+      <div class="arrow left"></div>
+      <div class="selection"></div>
+      <div class="arrow right"></div>
+   </div>
+   
+   
+
    <!-- Test content-->
+   <!--
    <div class="day-banner">
       <span class="day">Today</span>
    </div>
@@ -78,16 +93,17 @@
          </div>
       </div>
    </div>
-
+-->
    <!-- Boostrap Navbar
    TODO: 
    * Make name clickable 
    * Edit color scheme
    * Add settings, friends, and info
    * 
-   -->
+   
    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-bottom">
       <a class="navbar-brand" href="#">Zoo Gone (Click) -> </a>
+      <button type="button" id="create-task-btn" class="btn btn-primary btn-sm" onclick="createTask('Spanish', 'homework', '0', 'spanish-hw')">Create Task</button>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" href="#navbarText"
          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -103,11 +119,11 @@
          </span>
       </div>
    </nav>
-
+-->
    <!-- Scripts -->
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-   <script src="js/canvas-api-test.js"></script>
+   <script src="js/pinit.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
