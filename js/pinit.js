@@ -44,44 +44,38 @@ class Task {
                   '<span class="item-name">' + this.name + '</span>\n' +
                '</div></div>';
    }
-
 }
 
-
-var date = new Date();
 var formatDateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
 
-/**
- * Represents an array of task objects (sorted by due date)
- * Contains the id numbers
+/** 
+ * When user clicks on pin-it button, they will be offered groups. 
+ * Then they can create a new task.
  */
-var tasks = []
+function pinit(){
+   
+}
+/**
+ * Will map a new group with a color
+ * @param {string} name 
+ * @param {string} color 
+ */
+function createNewGroup(name, color){
+   /* Add to database this new group */
+   return {name: name, color: color};
+}
 
+/**
+ * Creates a new task with specified parameters. 
+ * Add to the database and show on screen.
+ * @param {*} name 
+ * @param {JSON} group 
+ * @param {*} due 
+ * @param {*} id 
+ */
 function createTask(name, group, due, id){
    task = new Task(name, group, due, id);
    $('#app-container').append(task.getHTML())
-}
-
-function getDays(num){
-   var dateArray = [];
-   var curr = new Date();
-
-   for (let i = 0; i < num; i++) {
-      curr = getNextDay(curr);
-      console.log(curr.getMonth()+1 + "-" + curr.getDate() + "-" + curr.getFullYear());
-   }
-}
-
-/**
- * Returns a date object that is the day after currDay.
- * Adds 24 hours to the time
- * @param {Date} currDay 
- */
-function getNextDay(currDay){
-   var newDay = new Date();
-   newDay.setTime(currDay.getTime() + 8.64e+7);
-
-   return newDay;
 }
 
 /**
@@ -107,8 +101,54 @@ function createTimeBanners(){
 
 /* Helper functions */
 
-function bannerHTML(id, dateStr){
-   return '<div class="day-banner" id="' + id + '">' +
-               '<span class="day">' + dateStr + '</span>'+
-            '</div>';
+/**
+ * Returns a date object that is the day after currDay.
+ * Adds 24 hours to the time
+ * @param {Date} currDay 
+ */
+function getNextDay(currDay){
+   var newDay = new Date();
+   newDay.setTime(currDay.getTime() + 8.64e+7);
+
+   return newDay;
 }
+
+function bannerHTML(id, dateStr){
+   return '<div class="day-block" id="' + id + '">' +
+            '<div class="banner">' +
+               '<span class="day-text">' + dateStr + '</span>'+
+            '</div>' +
+          '</div>';
+}
+
+/**
+ * Returns a unique id f   or the task which will be used in
+ * the html and in the database. 
+ * @param {Task} task 
+ */
+function hash(task){
+   return task.name + "-" + task.group + "-" + task.due;
+}
+
+
+/**** BUTTON FUNCTIONALITY ****/
+var currPage = 'today';
+
+$('#today-page-option').on('click', function(){
+   if (currPage != 'today'){
+      currPage = 'today';
+      document.getElementById('today-page-option').style.border = "1px solid var(--main-dark-red)";
+      document.getElementById('todo-list-page-option').style.border = "1px solid gainsboro";
+
+   }
+});
+
+$('#todo-list-page-option').on('click', function(){
+   if (currPage != 'todo-list'){
+      currPage = 'todo-list';
+      document.getElementById('today-page-option').style.border = "1px solid gainsboro";
+      document.getElementById('todo-list-page-option').style.border = "1px solid var(--main-dark-red)";
+      
+   }
+});
+

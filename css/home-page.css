@@ -1,37 +1,92 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap");
 
+/**** GLOBAL ****/
+:root {
+   --main-bg-color: rgba(249, 245, 247, .5);
+   --main-dark-blue: rgba(47, 82, 236, 0.5);
+   --main-dark-red: rgb(163, 36, 61);
 
-/* Page Styling */
+}
+
+/**** PAGE STYLING ****/
 .wrapper {
    display: flex;
    align-items: stretch;
 }
 
-.page-wrapper {
-   width: 100%;
-   background-image: linear-gradient( rgba(255, 152, 152, 0.8), rgba(231, 114, 78, 0.39));
+.flex-box{
+   display: flex;
+   width: 95%;
+   margin: auto;
+   justify-content: center;
+   align-items: center;
 }
 
 #app-container {
 
 }
 
-/* Navbar */
-#user-name {
-   font-size: .75rem;
-   color: rgb(65, 65, 70);
-}
-
-.navbar {
+/**** NAVIGATION ****/
+.main-nav-bar {
+   left: 0;
+   right: 0;
+   top: 0;
+   height: 50px;
+   padding: 14px 25px;
+   display: flex;
+   position: fixed;
+   align-items: center;
    justify-content: space-between;
-   box-shadow: 0 2px 0 rgba(93, 96, 99, .1);
-   padding-top: 2px;
-   padding-bottom: 2px;
+   background-color: white;
+   box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+   z-index: 10;
 }
 
-.bg-white-nav {
+.navbar-brand {
+   color: var(--main-dark-red);
+}
+
+.navbar-options{
+
+}
+
+.navbar-left{
+
+}
+
+.navbar-right{
+
+}
+
+.app-page-options{
+   display: flex;
+   padding-top: 15px;
+   justify-content: center;
+}
+
+.app-page-options button{
+   padding: 5px 10px;
+   margin: 0 5px;
+
+}
+
+.page-option{
+   transition: .25s;
+   border-radius: 5px;
    background-color: white;
+}
+#today-page-option{
+   border: 1px solid var(--main-dark-red);
+}
+
+#todo-list-page-option{
+   border: 1px solid gainsboro;
+}
+
+#user-name {
+   font-size: 1.25rem;
+   color: rgb(65, 65, 70);
 }
 
 .collapsing {
@@ -39,8 +94,40 @@
    -webkit-transition: height .35s ease;
 }
 
+/**** BUTTONS ****/
+.main-footer{
+   left: 0;
+   right: 0;
+   bottom: 0;
+   position: fixed;
+}
+.create-pinit{
+   font-size: medium;
+   margin: 10px 15px;
+   height: 90px;
+   width: 90px;
+   box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+   border-radius: 50%;
+   border: thin solid rgba(163, 36, 61, .5);
+   background-color: white;
+   transition: .5s;
+}
+
+.create-pinit:hover{
+   cursor: pointer;
+   transform: scale(1.05, 1.05);
+}
+
+.create-pinit:focus{
+   transform: scale(.95, .95);
+   box-shadow: none;
+   outline: none;
+}
+
+
+
 /* Todo List */
-.day-banner {
+.banner {
    display: flex;
    align-items: center;
    width: 95%;
@@ -52,13 +139,13 @@
    border-bottom: 1px solid #4C8577;
 }
 
-.day {
+.day-text {
    font-size: 1.25rem;
 }
 
 .empty-todo-list{
    padding-top: 5px;
-   padding-bottom: 5x;
+   padding-bottom: 5px;
 }
 
 .todo-block {
@@ -100,7 +187,7 @@
 }
 
 .homework .group {
-   color: #A5243D;
+   color: rgb(163, 36, 61);
 }
 
 .todo-item.homework {
@@ -154,7 +241,7 @@
    flex-direction: row;
    justify-content: space-evenly;
    align-items: center;
-   height: 75px;
+   height: 100px;
    width: 100%;
 }
 
@@ -183,7 +270,21 @@
    height: 50px;
    border: 2px solid rgba(70, 70, 70, .80);
    border-radius: 50%;
+   text-align: center;
+   padding-top: 10px;
 }
+
+.btn-circle.btn-xl { 
+   width: 90px; 
+   height: 90px; 
+   padding: 10px 16px; 
+   border-radius: 50%; 
+   border: 2px solid rgba(238, 111, 111, 0.8);
+   font-size: 15px; 
+   text-align: center; 
+   transition: .5s;
+} 
+
 
 /**
 .navbar {
@@ -255,13 +356,17 @@
    height: 200px;
 }
 
-/* Element Styling */
+/**** ELEMENTS ****/
 
 body {
    padding-top: 50px;
-   background-color: rgba(249, 245, 247, .5);
+   background-color: var(--main-bg-color);
    color: rgb(65, 65, 70);
    font-family: 'Be Vietnam', sans-serif;
+}
+
+button:focus{
+   outline: none;
 }
 
 /* Color Pallete */
