@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+   TODO:
+   Make pages individually scrollable, OR make them completely separate
+   Make pages show side by side on desktop but scrollable on smaller screens
+-->
+
 <head>
    <meta charset="UTF-8" />
    <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -29,7 +35,7 @@
 
    <header class="main-nav-bar">
       <div class="navbar-options navbar-left">
-         <a class="navbar-brand" href="#"> Pin-It </a>
+         <a class="navbar-brand" id="brand" href="#"> Pin-It </a>
       </div>
 
       <div class="navbar-options navbar-right">
@@ -37,48 +43,74 @@
       </div>
    </header>
 
-
+   <!-- Page selector -->
+   <div class="page-selector">
+      <div class="app-page-options">
+         <button class="page-option" id="today-page-option">
+            <span>Today</span>
+         </button>
+         <button class="page-option" id="todo-list-page-option">
+            <span>To-Do</span>
+         </button>
+      </div>
+   </div>
+   
+   <!-- Will dynamically add stuff here -->
+   
    <!-- Actual Content -->
    <div id="app-container">
-
-      <!-- Page selector -->
-      <div class="flex-box">
-         <div class="app-page-options">
-            <button class="page-option" id="today-page-option">
-               <span>Today</span>
-            </button>
-            <button class="page-option" id="todo-list-page-option">
-               <span>To-Do</span>
-            </button>
-         </div>
-      </div>
-      <!-- Will dynamically add stuff here -->
-   
-
       <!-- Test content-->
-      <div class="day-block" id="123019">
-         <div class="banner">
-            <span class="day-text">Today</span>
-         </div>
-
-         <div class="todo-list">
-            <div class="todo-block">
-               <img class="pin" src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
-               <a class="todo-item homework">
-                  <span class="group">Homework</span>
-                  <span calss="item-name">Linear Algebra: Homework</span>
-               </a>
+      <div class="page today-page">
+         <div class="day-block" id="123019">
+            <div class="banner">
+               <span class="day-text">Today</span>
             </div>
 
-            <div class="todo-block">
-               <img src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
-               <div class="todo-item homework">
-                  <span class="group">Homework</span>
-                  <span class="item-name">Chem: Lab</span>
+            <div class="todo-list">
+               <div class="todo-block">
+                  <img class="pin" src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
+                  <a class="todo-item homework">
+                     <span class="group">Homework</span>
+                     <span calss="item-name">Linear Algebra: Homework</span>
+                  </a>
+               </div>
+
+               <div class="todo-block">
+                  <img src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
+                  <div class="todo-item homework">
+                     <span class="group">Homework</span>
+                     <span class="item-name">Chem: Lab</span>
+                  </div>
                </div>
             </div>
          </div>
       </div>
+
+      <div class="page todolist-page">
+            <div class="day-block" id="123019">
+               <div class="banner">
+                  <span class="day-text">TODO</span>
+               </div>
+   
+               <div class="todo-list">
+                  <div class="todo-block">
+                     <img class="pin" src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
+                     <a class="todo-item homework">
+                        <span class="group">Homework</span>
+                        <span calss="item-name">Linear Algebra: Homework</span>
+                     </a>
+                  </div>
+   
+                  <div class="todo-block">
+                     <img src="/pinit-pwa-1.0/images/red-pin.png" height="25" width="25">
+                     <div class="todo-item homework">
+                        <span class="group">Homework</span>
+                        <span class="item-name">Chem: Lab</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
    </div>
 
    <!-- Footer -->

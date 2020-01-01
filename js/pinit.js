@@ -122,7 +122,7 @@ function bannerHTML(id, dateStr){
 }
 
 /**
- * Returns a unique id f   or the task which will be used in
+ * Returns a unique id for the task which will be used in
  * the html and in the database. 
  * @param {Task} task 
  */
@@ -132,14 +132,13 @@ function hash(task){
 
 
 /**** BUTTON FUNCTIONALITY ****/
-var currPage = 'today';
+var currPage = 'tobdo-list';
 
 $('#today-page-option').on('click', function(){
    if (currPage != 'today'){
       currPage = 'today';
-      document.getElementById('today-page-option').style.border = "1px solid var(--main-dark-red)";
+      document.getElementById('today-page-option').style.border = "1px solid var(--main-dark-blue)";
       document.getElementById('todo-list-page-option').style.border = "1px solid gainsboro";
-
    }
 });
 
@@ -147,8 +146,6 @@ $('#todo-list-page-option').on('click', function(){
    if (currPage != 'todo-list'){
       currPage = 'todo-list';
       document.getElementById('today-page-option').style.border = "1px solid gainsboro";
-      document.getElementById('todo-list-page-option').style.border = "1px solid var(--main-dark-red)";
-      
+      document.getElementById('todo-list-page-option').style.border = "1px solid var(--main-dark-blue)";  
    }
 });
-
